@@ -69,7 +69,12 @@
 \begin{document}
 \maketitle
 
+\noindent
 \textbf{Verze 1}
+
+\noindent
+\textbf{Verze 2}: Minimální kostry: Cleanup a pozn., že algoritmy z GA2
+netřeba umět.
 
 Tento dokument jsem sepsal zatímco jsem se učil na státnicový okruh Grafové
 algoritmy.  Snažím se zde shrnout všechnu látku z magisterských Diskrétních
@@ -609,10 +614,11 @@ Jarník s Fibonacciho haldou $\OO(n \log n + m)$, takže pro třídy grafů s $m
     Kombinuje chytře Jarníka a kontrahujícího borůvku $\OO(m \cdot \log^* n)$
 \end{alg-mys}
 
+\subsubsection*{O následujících algoritmech stačí jen vědět}
+
 \begin{alg-mys}[Verifikace minimality v $O(m)$]
     Používá Borůvka trees, musíme ukázat že stačí lineárně mnoho porovnání vah
-    hran a pak ještě algoritmus, který je v lineárním čase najde (počkat, není
-    to $\OO(m)$)?
+    hran a pak ještě algoritmus, který je v lineárním čase najde
 \end{alg-mys}
 
 \begin{alg-mys}[Karger-Klein-Tarjan]
@@ -627,7 +633,7 @@ Jarník s Fibonacciho haldou $\OO(n \log n + m)$, takže pro třídy grafů s $m
             optimální časová složitost. Učili jsme se ho na GA2, ale na
             státnice bych ho úplně vynechal.
         \item Neučili jsme se: $\OO(m)$ pro celočíselné váhy, Chazelle $\OO(m
-            \cdot \alpha(m, n)$
+            \cdot \alpha(m, n))$
     \end{itemize}
 \end{note}
 
