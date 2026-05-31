@@ -76,6 +76,10 @@
 \textbf{Verze 2}: Minimální kostry: Cleanup a pozn., že algoritmy z GA2
 netřeba umět.
 
+\noindent
+\textbf{Verze 3}: LCA: Oprava časové složitosti makrostuktury.
+Karger-Stein: Myslím, že vím jak implementovat vážené hrany.
+
 Tento dokument jsem sepsal zatímco jsem se učil na státnicový okruh Grafové
 algoritmy.  Snažím se zde shrnout všechnu látku z magisterských Diskrétních
 modelů i bakalářské Obecné informatiky, s kterou jsem se potkal a myslím si, že
@@ -316,8 +320,9 @@ $\OO(n^\omega \log n)$ full APSP, ale jen pro unweighted
     řezem a $st$-řezem.
 
     U globálního řezu uvažujeme neorientovaný
-    nevážený graf (ale Karger-Stein lze upravit pro vážený graf, jenom jsme si
-    to na GA1 neukazovali, myslím).
+    nevážený graf (Ale Karger-Stein lze upravit pro vážený graf -- složitost
+    není závislá na počtu hran, tak prostě použij multihrany, popř. reálná
+    čísla jako hran. Myslím, že algoritmus s tímhle v poho bude fungovat.)
 \end{note}
 
 \begin{thm}
@@ -534,7 +539,7 @@ vzhůru -- $\OO(\min(\text{vzdálenosti těch dvou od LCA}))$
 \end{alg}
 
 \begin{alg}[Převod RMQ na LCA]
-    Jednoduchý.
+    Pomocí kartézských stromů.
 \end{alg}
 
 \begin{alg}[RMQ$\pm1$]
@@ -546,8 +551,8 @@ vzhůru -- $\OO(\min(\text{vzdálenosti těch dvou od LCA}))$
         \item Mikrostruktura \enquote{bruteforce} předpočítání všech dvojic --
             $\OO(n^2)$ preprocess, $\OO(1)$ query.
         \item Makrostruktura si předpočítá nadbloky obsahující počty bloků
-            odpovídající mocninám dvojky -- $\OO(n \log n)$ preprocess,
-            $\OO(\log^2 n)$ query.
+            odpovídající mocninám dvojky (mohou začínat na kterémkoliv indexu)
+            -- $\OO(n \log n)$ preprocess, $\OO(1)$ query.
         \item Samozřejmě pak analýza časové složitosti.
     \end{itemize}
 \end{alg}
