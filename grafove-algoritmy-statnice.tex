@@ -80,6 +80,10 @@ netřeba umět.
 \textbf{Verze 3}: LCA: Oprava časové složitosti makrostuktury.
 Karger-Stein: Myslím, že vím jak implementovat vážené hrany.
 
+\noindent
+\textbf{Verze 4}: Karger-Stein: Fix typo. Tranzitivní uzávěr: Doplněn rozděl a
+panuj algoritmus.
+
 Tento dokument jsem sepsal zatímco jsem se učil na státnicový okruh Grafové
 algoritmy.  Snažím se zde shrnout všechnu látku z magisterských Diskrétních
 modelů i bakalářské Obecné informatiky, s kterou jsem se potkal a myslím si, že
@@ -257,6 +261,19 @@ máme heuristiky!
     zůstáváme na $\OO(n^3 / \log n)$ násobení, s čímž FW nepřekonáme.
 \end{note}
 
+\begin{alg}[Rozděl a panuj zrychlení tranz. uzávěru]
+    ~
+
+    \begin{itemize}
+        \item $\OO(n^\omega)$
+        \item Rozdělíme vstupní matici sousednosti a výstupní matici
+            dosažitelnosti na čtyři podmatice a ukážeme, že je vlastně potřeba
+            spočítat na každé úrovni rekurze jen dva podproblémy, ne čtyři.
+        \item Pak dominantní je kořen stromu rekurze, kde nejvíce času zabere
+            násobení (konstantně mnoha) matic $\rightarrow \OO(n^\omega)$.
+    \end{itemize}
+\end{alg}
+
 \begin{alg-mys}[Seidelův algoritmus]
 $\OO(n^\omega \log n)$ full APSP, ale jen pro unweighted
 \end{alg-mys}
@@ -322,7 +339,8 @@ $\OO(n^\omega \log n)$ full APSP, ale jen pro unweighted
     U globálního řezu uvažujeme neorientovaný
     nevážený graf (Ale Karger-Stein lze upravit pro vážený graf -- složitost
     není závislá na počtu hran, tak prostě použij multihrany, popř. reálná
-    čísla jako hran. Myslím, že algoritmus s tímhle v poho bude fungovat.)
+    čísla jako počty hran. Myslím, že algoritmus s tímhle v poho bude
+    fungovat.)
 \end{note}
 
 \begin{thm}
