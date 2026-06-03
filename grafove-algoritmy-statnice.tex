@@ -84,6 +84,14 @@ Karger-Stein: Myslím, že vím jak implementovat vážené hrany.
 \textbf{Verze 4}: Karger-Stein: Fix typo. Tranzitivní uzávěr: Doplněn rozděl a
 panuj algoritmus.
 
+\noindent
+\textbf{Verze 5}: Minimální kostry: Kontr. borůvka z paralelních hran nechá
+vždy \emph{nejlehčí}, ne nejtěžší. Nadpis \enquote{O následujících algoritmech
+stačí jen vědět} $rightarrow$ \enquote{Stačí jen vědět, že následující alg.
+existují}. Fredman-Tarjan je lin. pro $\exists k: m \in \Omega(n \log^{(k)}
+n)$. Union-Find: Má složitost $\OO(\alpha(m, n))$, ne $\OO(\alpha(n, n))$,
+odebráno TODO.
+
 Tento dokument jsem sepsal zatímco jsem se učil na státnicový okruh Grafové
 algoritmy.  Snažím se zde shrnout všechnu látku z magisterských Diskrétních
 modelů i bakalářské Obecné informatiky, s kterou jsem se potkal a myslím si, že
@@ -611,7 +619,7 @@ bude nabarveno).
 \end{alg}
 
 \begin{alg}[Kontrahující Borůvka]
-  Zahazuje smyčky.  Z paralelních hran vždy zahodí všechny kromě nejtěžší
+  Zahazuje smyčky.  Z paralelních hran vždy zahodí všechny kromě nejlehčí
   (red rule).
 
   Je třeba rozmyslet, aby kontrakce v každé fázi proběhly v $\OO(m)$. (vypadá ez)
@@ -635,9 +643,11 @@ Jarník s Fibonacciho haldou $\OO(n \log n + m)$, takže pro třídy grafů s $m
 
 \begin{alg-mys}[Fredman-Tarjan]
     Kombinuje chytře Jarníka a kontrahujícího borůvku $\OO(m \cdot \log^* n)$
+
+    Je lin. pro $\exists k: m \in \Omega(n \log^{(k)} n)$.
 \end{alg-mys}
 
-\subsubsection*{O následujících algoritmech stačí jen vědět}
+\subsubsection*{Stačí jen vědět, že následující alg. existují}
 
 \begin{alg-mys}[Verifikace minimality v $O(m)$]
     Používá Borůvka trees, musíme ukázat že stačí lineárně mnoho porovnání vah
@@ -750,7 +760,7 @@ https://kam.mff.cuni.cz/~mares/video/ls2526/ga2/02-rovinne-kresleni.mp4
 \begin{note}
     Používáme $n$ pro počet vrcholů, na kterých pracujeme a $m$ pro počet operací,
     které provádíme.  Pokud začínáme s izolovanými vrcholy, $n \in \OO(m)$ a
-    složitosti se pak zjednoduší na $\OO(\log n)$ nebo $\OO(\alpha(n, n))$ za
+    složitosti se pak zjednoduší na $\OO(\log n)$ nebo $\OO(\alpha(m, n))$ za
     operaci.
 \end{note}
 
@@ -760,8 +770,7 @@ https://kam.mff.cuni.cz/~mares/video/ls2526/ga2/02-rovinne-kresleni.mp4
     ranku $r-1$)
 \end{anal}
 
-\begin{anal-mys}[Path compression $\OO((n + m) \log n)$ (TODO nebo celou
-    analýzu?)]
+\begin{anal}[Path compression $\OO((n + m) \log n)$]
     ~
 
     \begin{itemize}
@@ -769,7 +778,7 @@ https://kam.mff.cuni.cz/~mares/video/ls2526/ga2/02-rovinne-kresleni.mp4
         \item Indukce přes partition lesu na top a bottom část
         \item Partitionuji na půlky a to mi dá logaritmus
     \end{itemize}
-\end{anal-mys}
+\end{anal}
 
 \begin{definition}[Inverzní Ackermanova funkce]
     ~
