@@ -92,6 +92,10 @@ existují}. Fredman-Tarjan je lin. pro $\exists k: m \in \Omega(n \log^{(k)}
 n)$. Union-Find: Má složitost $\OO(\alpha(m, n))$, ne $\OO(\alpha(n, n))$,
 odebráno TODO.
 
+\noindent
+\textbf{Verze 6}: Dinic na jednotkových vahách: Ty dva algoritmy nemají
+$\Theta$ bound na složitost, ale těsný $\OO$ bound.  V tom je vlastně rozdíl.
+
 Tento dokument jsem sepsal zatímco jsem se učil na státnicový okruh Grafové
 algoritmy.  Snažím se zde shrnout všechnu látku z magisterských Diskrétních
 modelů i bakalářské Obecné informatiky, s kterou jsem se potkal a myslím si, že
@@ -311,11 +315,12 @@ $\OO(n^\omega \log n)$ full APSP, ale jen pro unweighted
 
     \begin{itemize}
         \item $\OO(m^{3 / 2})$
-        \item $\Theta(\sqrt{n} \cdot m)$ pro $\min(\deg^{in}(v), \deg^{out}(v)) \le 1$
-        \item $\Theta(n^{2/3} \cdot m)$ pro non-multigrafy
+        \item $\OO(\sqrt{n} \cdot m)$ pro $\min(\deg^{in}(v), \deg^{out}(v))
+            \le 1$ (těsný bound)
+        \item $\OO(n^{2/3} \cdot m)$ pro non-multigrafy (těsný bound)
     \end{itemize}
 
-    (pro ty $\Theta$ jsme si ukazovali jenom $\OO$ důkaz)
+    (těsnost jsme si nedokazovali)
 \end{anal}
 
 \begin{alg}[Varianty Dinice pro celočíselné kapacity $\le C$]
